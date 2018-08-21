@@ -1,10 +1,10 @@
-# Configuration
+# Configuring Workspaces
 
 Gitpod workspaces are started based on sensible defaults, but of course not every workspace looks the same.
 
 ## `.gitpod` File
 
-A workspace gets configured through a .gitpod file written in `yaml` syntax. There are three ways you can provide this file:
+A workspace gets configured through a `.gitpod` file written in `yaml` syntax. There are three ways you can provide this file:
 ### 1) Check in `.gitpod` File
 
 The simplest and preferred option is to check in a `.gitpod` file into your repository. The advantage is that you can even 
@@ -17,7 +17,7 @@ Sometimes you can't check in a `.gitpod` file, for instance because you don't ha
 one through the central [definitely-gp](https://github.com/gitpod-io/definitely-gp) repository. It contains 
 `.gitpod` files for public GitHub repositories. 
 
-### 3) Inferred `.gitpod` file
+### 3) Inferred `.gitpod` File
 
 If the first two locations don't have a `.gitpod` file for your project, Gitpod will compute one
 by analyzing your project and using good common defaults.
@@ -65,15 +65,15 @@ In short, it expects the source code of your repository and its dependencies in 
 src/<repository provider>/<repository owner>/<repository name>
 ```
 on the `$GOPATH`.
-To achieve that with Gitpod, you have to tweak the `.gitpod` file a bit. Here is how we do that in the 
-example [go-gin-app](https://github.com/gitpod-io/go-gin-app/blob/master/.gitpod) repository:
+To achieve that with Gitpod, you have to tweak the `.gitpod` file a bit. Here is how we do that for the 
+example [go-gin-app](https://github.com/gitpod-io/definitely-gp/blob/master/go-gin-app/.gitpod) repository:
 ```yaml
 ...
-checkoutLocation: "src/github.com/gitpod-io/go-gin-app"
+checkoutLocation: "src/github.com/demo-apps/go-gin-app"
 workspaceLocation: "."
 tasks:
   - command: >
-      cd /workspace/src/github.com/gitpod-io/go-gin-app && 
+      cd /workspace/src/github.com/demo-apps/go-gin-app && 
       go get -v ./... && 
       go build -o app && 
       ./app
